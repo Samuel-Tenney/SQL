@@ -1,0 +1,37 @@
+--Create a table of athletes who are brothers and pair the brothers together
+
+CREATE TABLE athletes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    sport TEXT);
+INSERT INTO athletes (name, sport) VALUES ("Chandler Jones", "Football");
+INSERT INTO athletes (name, sport) VALUES ("Jon Jones", "UFC");
+INSERT INTO athletes (name, sport) VALUES
+("Bubba Thompson", "Baseball");
+INSERT INTO athletes (name, sport) VALUES
+("Klay Thompson", "Basketball");
+INSERT INTO athletes (name, sport) VALUES
+("Seth Curry", "Basketball");
+INSERT INTO athletes (name, sport) VALUES
+("Steph Curry", "Basketball");
+
+--Table to pair the brothers together
+CREATE table brothers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person1_id INTEGER,
+    person2_id INTEGER);
+
+INSERT INTO brothers (person1_id, person2_id)
+    VALUES (1, 2);
+INSERT INTO brothers (person1_id, person2_id)
+    VALUES (3, 4);
+INSERT INTO brothers (person1_id, person2_id)
+    VALUES (5, 6);    
+    
+--Join to make a table with younger brother on the left and older brother on the right    
+SELECT a.name as younger_brother, b.name as older_brother
+FROM brothers
+JOIN athletes a
+ON a.id = brothers.person1_id
+JOIN athletes b
+ON b.id = brothers.person2_id;
