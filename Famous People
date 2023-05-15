@@ -7,7 +7,7 @@ CREATE TABLE athletes (
 INSERT INTO athletes (name, sport) VALUES ("Chandler Jones", "Football");
 INSERT INTO athletes (name, sport) VALUES ("Jon Jones", "UFC");
 INSERT INTO athletes (name, sport) VALUES
-("Bubba Thompson", "Baseball");
+("Trayce Thompson", "Baseball");
 INSERT INTO athletes (name, sport) VALUES
 ("Klay Thompson", "Basketball");
 INSERT INTO athletes (name, sport) VALUES
