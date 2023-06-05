@@ -1,14 +1,29 @@
 --Querying data from a digital media store called Chinook
 
 1. Show Customers (their full names, customer ID, and country) who are not in the US. (Hint: != or <> can be used to say "is not equal to").
+SELECT FirstName, LastName, CustomerId, Country
+FROM chinook.customers
+WHERE Country<>"USA";
 
 2. Show only the Customers from Brazil.
+SELECT * FROM chinook.customers 
+WHERE Country = "Brazil";
 
 3. Find the Invoices of customers who are from Brazil. The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country.
+SELECT c.FirstName, c.LastName, i.InvoiceId, i.InvoiceDate, i.BillingCountry
+FROM chinook.invoices i
+LEFT JOIN chinook.customers c
+ON c.CustomerId=i.CustomerId
+WHERE i.BillingCountry="Brazil";
 
 4. Show the Employees who are Sales Agents.
+SELECT *
+From chinook.employees
+WHERE Title="Sales Support Agent";
 
 5. Find a unique/distinct list of billing countries from the Invoice table.
+SELECT DISTINCT BillingCountry
+FROM chinook.invoices;
 
 6. Provide a query that shows the invoices associated with each sales agent. The resulting table should include the Sales Agent's full name.
 
